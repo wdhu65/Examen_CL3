@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Lista de productos</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<br><br>
+			<h1 align="left">Lista de productos</h1>
+			<hr>
+			<h2 align="left"><a class="btn btn-success" th:href="@{Registrar}">Registrar Producto</a></h2>
+			<hr>
+			<table class="table table-striped-columns" align="center" border="1">
+				<thead class="table-dark">
+					<tr align="center">
+						<th>Código</th>
+						<th>Nombre</th>						
+						<th>Stock</th>
+						<th>Precio de Venta</th>
+						<th>Precio de Compra</th>			
+						<th>Estado</th>					
+						<th>Descripción</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody >
+				<tr th:each="p:${listadoproducto}">
+					<td align="center" th:text="${p.idproductocl3}"></td>
+					<td align="center" th:text="${p.nombrecl3}"></td>
+					<td align="center" th:text="${p.stockcl3}"></td>
+					<td align="center" th:text="${p.precioVentacl3}"></td>
+					<td align="center" th:text="${p.preciocl3}"></td>
+					<td align="center" th:text="${p.estadocl3}"></td>
+					<td align="center" th:text="${p.descripcl3}"></td>
+					<td align="center">
+						<a class="btn btn-warning" th:href="@{Editar/}+${p.idproductocl3}" th:text="Actualizar"></a>
+						<a class="btn btn-danger" th:href="@{Eliminar/}+${p.idproductocl3}" th:text="Eliminar"></a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
